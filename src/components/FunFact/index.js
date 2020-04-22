@@ -9,6 +9,7 @@ export default function FunFact() {
     axios.get('http://cat-fact.herokuapp.com/facts/random')
       .then((result) => {
         setData(result.data);
+        console.log(data)
       })
       .catch((error) => console.log(error));
   }, []);
@@ -16,7 +17,7 @@ export default function FunFact() {
   return (
     <Facts>
       <Fact>
-        {data.text}
+        A happy cat holds her tail high and steady.
       </Fact>
       <button type="button">
         New Fun Fact

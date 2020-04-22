@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Area = styled.main`
   display: flex;
   position: relative;
-  background-image: url("https://cdn2.thecatapi.com/images/luRSIStaw.jpg");
+  background-image: url(${props => props.image});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -23,4 +23,13 @@ const Buttons = styled.div`
   padding-bottom: 10px;
 `;
 
-export { Area, Buttons }
+const Button = styled.button`
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: ${props => props.color || 'black'};
+`
+
+export { Area, Buttons, Button }

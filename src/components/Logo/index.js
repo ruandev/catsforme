@@ -1,10 +1,10 @@
 import React from 'react'
-import './style.scss'
+import { AreaLogo, TextLogo } from './style'
 
 export default function Logo() {
   return (
-    <div className="logo" >
-      <h1>Cats for me</h1>
-    </div >
+    <AreaLogo>
+      <TextLogo>Cats for me</TextLogo>
+    </AreaLogo >
   )
 }

@@ -1,14 +1,14 @@
 import React from 'react'
-import './styles.scss'
+import { Area, Buttons } from './style'
 
 export default function Cats() {
   return (
-    <main>
-      <div className="actions">
+    <Area>
+      <Buttons>
         <button>Like</button>
         <button>Unlike</button>
         <button>New Image</button>
-      </div>
-    </main>
+      </Buttons>
+    </Area>
   )
 }

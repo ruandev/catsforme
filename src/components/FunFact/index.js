@@ -1,15 +1,15 @@
 import React from 'react'
-import './style.scss'
+import { Facts, Fact } from './style'
 
 export default function FunFact() {
   return (
-    <div className="fun_fact">
-      <p>
+    <Facts>
+      <Fact>
         While Chartreux cats aren't very vocal, they are sociable and communicate through eye contact and body language
-          </p>
+      </Fact>
       <button>
         New Fun Fact
-          </button>
-    </div>
+      </button>
+    </Facts>
   )
 }

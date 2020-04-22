@@ -1,4 +1,6 @@
-main {
+import styled from 'styled-components'
+
+const Area = styled.main`
   display: flex;
   position: relative;
   background-image: url("https://cdn2.thecatapi.com/images/luRSIStaw.jpg");
@@ -6,26 +8,19 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
   flex-flow: column-reverse;
-  width: 100%;
+  width: 80%;
   min-height: 350px;
 
-  img {
-    max-width: 100%;
-    max-height: 600px;
-    width: auto;
-    height: auto;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  main {
-    width: 80%;
+  @media (max-width: 1220px) {
+    width: 100%;
     height: 80vh;
   }
-}
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+`;
+
+export { Area, Buttons }

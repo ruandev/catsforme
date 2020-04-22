@@ -1,28 +1,16 @@
 import React from 'react'
 import './container.scss'
+import FunFact from './components/FunFact'
+import Cats from './components/Cats'
+import Logo from './components/Logo'
 
 export default function Container() {
   return (
     <div className="container">
-      <main>
-        <div className="actions">
-          <button>Like</button>
-          <button>Unlike</button>
-          <button>New Image</button>
-        </div>
-      </main>
+      <Cats />
       <aside>
-        <div className="logo">
-          <h1>Cats for me</h1>
-        </div>
-        <div className="fun_fact">
-          <p>
-            While Chartreux cats aren't very vocal, they are sociable and communicate through eye contact and body language
-          </p>
-          <button>
-            New Fun Fact
-          </button>
-        </div>
+        <Logo />
+        <FunFact />
       </aside>
     </div>
   )

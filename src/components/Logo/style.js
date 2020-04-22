@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const AreaLogo = styled.div`
 width: 100%;
@@ -13,4 +13,4 @@ const TextLogo = styled.div`
   letter-spacing: 2px;
 `;
 
-export { AreaLogo, TextLogo }
+export { AreaLogo, TextLogo };

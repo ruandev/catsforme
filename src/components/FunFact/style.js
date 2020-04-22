@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Facts = styled.div`
   width: 100%;
@@ -15,6 +15,6 @@ const Fact = styled.p`
   padding-right: 20px;
   font-family: "Oswald", sans-serif;
   letter-spacing: 2px;
-`
+`;
 
-export { Facts, Fact }
+export { Facts, Fact };

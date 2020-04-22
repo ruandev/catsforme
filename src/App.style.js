@@ -9,6 +9,6 @@ const Page = styled.div`
   @media (min-width: 600px) {
       height: auto;
   }
-`
+`;
 
-export { Page }
+export { Page };

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const AllArea = styled.div`
   width: 100%;
@@ -26,4 +26,4 @@ const SideArea = styled.aside`
   }
 `;
 
-export { AllArea, SideArea }
+export { AllArea, SideArea };

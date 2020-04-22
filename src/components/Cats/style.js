@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Area = styled.main`
   display: flex;
   position: relative;
-  background-image: url(${props => props.image});
+  background-image: url(${(props) => props.image});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -29,7 +29,7 @@ const Button = styled.button`
   border: none;
   margin-right: 10px;
   font-size: 1.5rem;
-  color: ${props => props.color || 'black'};
-`
+  color: ${(props) => props.color || 'black'};
+`;
 
-export { Area, Buttons, Button }
+export { Area, Buttons, Button };

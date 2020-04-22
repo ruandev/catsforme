@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Area, Buttons, Button } from './style'
 import axios from 'axios';
+import { v1 as uuidv1 } from 'uuid';
 import { FaThumbsUp, FaThumbsDown, FaRandom } from 'react-icons/fa';
 
 
 export default function Cats() {
   const api_key = process.env.API_KEY;
+  let sub_id = uuidv1();
+  if (localStorage.getItem("sub_id") != null) {
+    sub_id = localStorage.getItem("sub_id")
+  } else {
+    localStorage.setItem("sub_id", sub_id);
+  }
+
+
   const [newImage, setNewImage] = useState(false);
   const [urlImage, setUrlImage] = useState("");
   const [imageId, setImageId] = useState("");
@@ -17,7 +26,7 @@ export default function Cats() {
         setImageId(result.data[0].id)
       })
       .catch(error => console.log(error));
-  }, [newImage]);
+  }, [api_key, newImage]);
 
   function newRandomImage() {
     setUrlImage("");
@@ -26,10 +35,11 @@ export default function Cats() {
 
   function vote(thumbs) {
     const valueVote = (thumbs ? 1 : 0);
+    console.log("SUB_ID: " + sub_id)
 
     const body = {
       "image_id": imageId,
-      "sub_id": "ruan-1994",
+      "sub_id": sub_id,
       "value": valueVote
     }
 

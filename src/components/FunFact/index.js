@@ -9,7 +9,6 @@ export default function FunFact() {
     axios.get('http://cat-fact.herokuapp.com/facts/random')
       .then((result) => {
         setData(result.data);
-        console.log(data)
       })
       .catch((error) => console.log(error));
   }, []);

@@ -11,6 +11,7 @@ align-items: center;
 const TextLogo = styled.div`
   font-size: xx-large;
   letter-spacing: 2px;
+  font-weight: bold;
 `;
 
 export { AreaLogo, TextLogo };

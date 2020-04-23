@@ -4,21 +4,26 @@ import { Facts, Fact } from './style';
 
 export default function FunFact() {
   const [data, setData] = useState({});
+  const [newFact, setNewFact] = useState(false);
 
   useEffect(() => {
-    axios.get('http://cat-fact.herokuapp.com/facts/random')
+    axios.get('http://cat-fact.herokuapp.com/facts/random', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      }
+    })
       .then((result) => {
         setData(result.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [newFact]);
 
   return (
     <Facts>
       <Fact>
-        A happy cat holds her tail high and steady.
+        {data.text}
       </Fact>
-      <button type="button">
+      <button type="button" onClick={() => { setNewFact(!newFact) }}>
         New Fun Fact
       </button>
     </Facts>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v1 as uuidv1 } from 'uuid';
-import { FaThumbsUp, FaThumbsDown, FaRandom } from 'react-icons/fa';
+import { FaThumbsUp, FaRandom } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
 import { Area, Buttons, Button } from './style';
 
 
@@ -51,7 +52,7 @@ export default function Cats() {
     <Area image={urlImage}>
       <Buttons>
         <Button title="Like" color="green" onClick={() => vote(true)}><FaThumbsUp /></Button>
-        <Button title="Unlike" color="red" onClick={() => vote(false)}><FaThumbsDown /></Button>
+        <Button title="Unlike" color="red" onClick={() => vote(false)}><AiOutlineClose /></Button>
         <Button title="New Image" onClick={newRandomImage}><FaRandom /></Button>
       </Buttons>
     </Area>

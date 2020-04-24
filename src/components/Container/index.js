@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AllArea, Header } from './style';
 import Cats from '../Cats';
 import Logo from '../Logo';
 import FunFact from '../FunFact';
 
 export default function Container({ analyticsRegister }) {
+  const [newVote, setNewVote] = useState(false);
+
   return (
     <AllArea>
       <Header>
         <Logo />
-        <FunFact analyticsRegister={analyticsRegister} />
+        <FunFact newFact={newVote} />
       </Header>
-      <Cats analyticsRegister={analyticsRegister} />
+      <Cats analyticsRegister={analyticsRegister} handleVote={() => setNewVote(!newVote)} />
     </AllArea>
   );
 }

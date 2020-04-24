@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v1 as uuidv1 } from 'uuid';
-import { FaRandom } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
-import { Area, Buttons, Button } from './style';
+import {
+  Area, Buttons, Button, Unlike,
+} from './style';
 import PawCat from '../../assets/paw_cat.png';
 
-export default function Cats({ analyticsRegister }) {
+export default function Cats({ analyticsRegister, handleVote }) {
   const apiKey = process.env.API_KEY;
   let subId = uuidv1();
   if (localStorage.getItem('sub_id') != null) {
@@ -15,9 +15,9 @@ export default function Cats({ analyticsRegister }) {
     localStorage.setItem('sub_id', subId);
   }
 
-  const [newImage, setNewImage] = useState(false);
   const [urlImage, setUrlImage] = useState('');
   const [imageId, setImageId] = useState('');
+  const [newImage, setNewImage] = useState('');
 
   useEffect(() => {
     axios
@@ -32,41 +32,35 @@ export default function Cats({ analyticsRegister }) {
       .catch((error) => console.log(error));
   }, [apiKey, newImage]);
 
-  function newRandomImage() {
-    analyticsRegister('randomImage');
-    setUrlImage('');
-    setNewImage(!newImage);
-  }
-
   function vote(thumbs) {
     const valueVote = thumbs ? 1 : 0;
     analyticsRegister(`vote ${thumbs ? 'positive' : 'negative'}`);
 
     const body = {
       image_id: imageId,
-      subId,
+      sub_id: subId,
       value: valueVote,
     };
 
     axios
       .post('https://api.thecatapi.com/v1/votes', body, {
-        headers: { 'x-api-key': { apiKey } },
+        headers: { 'x-api-key': apiKey },
       })
-      .then(newRandomImage())
+      .then(() => {
+        handleVote();
+        setNewImage(!newImage);
+      })
       .catch((error) => console.log(error));
   }
 
   return (
     <Area image={urlImage}>
       <Buttons>
-        <Button title="Like" onClick={() => vote(true)} color="#348a5d">
-          <img src={PawCat} alt="Like" width="50px" height="50px" />
-        </Button>
         <Button title="Unlike" color="#ad2c34" onClick={() => vote(false)}>
-          <AiOutlineClose />
+          <Unlike>X</Unlike>
         </Button>
-        <Button title="New Image" onClick={newRandomImage} color="#015a6b">
-          <FaRandom />
+        <Button title="Like" color="#348a5d" onClick={() => vote(true)}>
+          <img src={PawCat} alt="Like" width="50px" height="50px" />
         </Button>
       </Buttons>
     </Area>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Facts, Fact, Button } from './style';
+import { Facts, Fact } from './style';
 
-export default function FunFact({ analyticsRegister }) {
+export default function FunFact({ newFact }) {
   const [data, setData] = useState({});
-  const [newFact, setNewFact] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,19 +18,9 @@ export default function FunFact({ analyticsRegister }) {
       .catch((error) => console.log(error));
   }, [newFact]);
 
-  function newRandomFact() {
-    analyticsRegister('newRandomFact');
-    setNewFact(!newFact);
-  }
-
   return (
     <Facts>
       <Fact>{data.text}</Fact>
-      <Button
-        onClick={newRandomFact}
-      >
-        New Fun Fact
-      </Button>
     </Facts>
   );
 }

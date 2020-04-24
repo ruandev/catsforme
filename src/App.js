@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import Container from './components/Container';
 import { Page } from './App.style';
+import ButtonAbout from './components/ButtonAbout';
 
 export default function App() {
   ReactGA.initialize('UA-164496837-1');
@@ -15,8 +16,11 @@ export default function App() {
   }
 
   return (
-    <Page>
-      <Container analyticsRegister={registerEventClick} />
-    </Page>
+    <>
+      <ButtonAbout />
+      <Page>
+        <Container analyticsRegister={registerEventClick} />
+      </Page>
+    </>
   );
 }

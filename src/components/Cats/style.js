@@ -36,4 +36,14 @@ const Button = styled.button`
   }
 `;
 
-export { Area, Buttons, Button };
+const Unlike = styled.span`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export {
+  Area, Buttons, Button, Unlike,
+};

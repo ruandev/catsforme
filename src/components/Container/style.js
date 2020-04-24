@@ -10,6 +10,10 @@ const AllArea = styled.div`
   justify-content: center;
   padding-bottom: 10px;
   padding-top: 10px;
+
+  @media (max-width: 500px) {
+    height: auto; 
+  }
 `;
 
 const Header = styled.header`

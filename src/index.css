@@ -19,6 +19,12 @@ body {
   overflow: hidden;
 }
 
+@media screen and (max-width: 500px) {
+  body {
+    overflow: auto;
+  }
+}
+
 h1 {
   font-family: "Cattyla";
   margin: 0;

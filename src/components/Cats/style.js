@@ -8,13 +8,8 @@ const Area = styled.main`
   background-repeat: no-repeat;
   background-size: contain;
   flex-flow: column-reverse;
-  width: 80%;
-  min-height: 350px;
-
-  @media (max-width: 1220px) {
-    width: 100%;
-    height: 80vh;
-  }
+  width: 100%;
+  min-height: 500px;
 `;
 
 const Buttons = styled.div`

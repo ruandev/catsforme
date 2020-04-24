@@ -1,7 +1,25 @@
+@font-face {
+  font-family: "Cattyla";
+  src: local("Cattyla"), url("./assets/fonts/Cattyla.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "WinkleRegular";
+  src: local("Winkle-regular"),
+    url("./assets/fonts/WinkleRegular.ttf") format("truetype");
+}
+
 body {
   margin: 0;
-  font-family: "Cabin Sketch", cursive;
+  font-family: "Oswald", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e9ebf0;
+  background-image: url("./assets/background_cat.png");
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Cattyla";
+  margin: 0;
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Facts = styled.div`
-  width: 100%;
+  width: 50%;
   height: 70%;
   display: flex;
   align-items: center;
@@ -9,11 +9,9 @@ const Facts = styled.div`
   flex-direction: column;
 `;
 
-
 const Fact = styled.p`
   padding-left: 20px;
   padding-right: 20px;
-  font-family: "Oswald", sans-serif;
   letter-spacing: 2px;
 `;
 

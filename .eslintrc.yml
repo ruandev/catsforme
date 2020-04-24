@@ -15,11 +15,9 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-  - prettier
 rules:
   {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
     "no-console": "off",
-    "prettier/prettier": "error",
   }

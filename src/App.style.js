@@ -7,7 +7,7 @@ const Page = styled.div`
   align-items: center;
 
   @media (min-width: 600px) {
-      height: auto;
+    height: auto;
   }
 `;
 

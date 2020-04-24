@@ -7,11 +7,12 @@ export default function FunFact() {
   const [newFact, setNewFact] = useState(false);
 
   useEffect(() => {
-    axios.get('http://cat-fact.herokuapp.com/facts/random', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      }
-    })
+    axios
+      .get('http://cat-fact.herokuapp.com/facts/random', {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
       .then((result) => {
         setData(result.data);
       })
@@ -20,10 +21,13 @@ export default function FunFact() {
 
   return (
     <Facts>
-      <Fact>
-        {data.text}
-      </Fact>
-      <button type="button" onClick={() => { setNewFact(!newFact) }}>
+      <Fact>{data.text}</Fact>
+      <button
+        type="button"
+        onClick={() => {
+          setNewFact(!newFact);
+        }}
+      >
         New Fun Fact
       </button>
     </Facts>

@@ -8,7 +8,7 @@ export default function FunFact() {
 
   useEffect(() => {
     axios
-      .get('http://cat-fact.herokuapp.com/facts/random', {
+      .get('https://cat-fact.herokuapp.com/facts/random', {
         headers: {
           'Access-Control-Allow-Origin': '*',
         },

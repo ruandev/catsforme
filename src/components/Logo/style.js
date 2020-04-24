@@ -15,6 +15,6 @@ const TextLogo = styled.h1`
 
 const NumberLogo = styled.span`
   font-family: "WinkleRegular";
-`
+`;
 
 export { AreaLogo, TextLogo, NumberLogo };

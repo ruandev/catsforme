@@ -3,16 +3,16 @@ import ReactGA from 'react-ga';
 import Container from './components/Container';
 import { Page } from './App.style';
 
-function App() {
+export default function App() {
   ReactGA.initialize('UA-164496837-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
 
-  function registerEventClick(action) {
+  function registerEventClick(actionToRegister) {
     ReactGA.event({
       category: 'Click',
-      action: { action },
+      action: actionToRegister,
     });
-  };
+  }
 
   return (
     <Page>
@@ -20,5 +20,3 @@ function App() {
     </Page>
   );
 }
-
-export default App;

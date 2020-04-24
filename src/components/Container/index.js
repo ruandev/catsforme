@@ -4,14 +4,14 @@ import Cats from '../Cats';
 import Logo from '../Logo';
 import FunFact from '../FunFact';
 
-export default function Container() {
+export default function Container({ analyticsRegister }) {
   return (
     <AllArea>
       <Header>
         <Logo />
-        <FunFact />
+        <FunFact analyticsRegister={analyticsRegister} />
       </Header>
-      <Cats />
+      <Cats analyticsRegister={analyticsRegister} />
     </AllArea>
   );
 }

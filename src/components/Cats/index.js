@@ -6,7 +6,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { Area, Buttons, Button } from './style';
 import PawCat from '../../assets/paw_cat.png';
 
-export default function Cats() {
+export default function Cats({ analyticsRegister }) {
   const apiKey = process.env.API_KEY;
   let subId = uuidv1();
   if (localStorage.getItem('sub_id') != null) {
@@ -33,12 +33,14 @@ export default function Cats() {
   }, [apiKey, newImage]);
 
   function newRandomImage() {
+    analyticsRegister('randomImage');
     setUrlImage('');
     setNewImage(!newImage);
   }
 
   function vote(thumbs) {
     const valueVote = thumbs ? 1 : 0;
+    analyticsRegister(`vote ${thumbs ? 'positive' : 'negative'}`);
 
     const body = {
       image_id: imageId,

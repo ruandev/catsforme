@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AllArea = styled.div`
+const ContainerCustom = styled.div`
   width: 80%;
   height: 100vh;
   background-color: white;
@@ -10,6 +10,7 @@ const AllArea = styled.div`
   justify-content: center;
   padding-bottom: 10px;
   padding-top: 10px;
+  overflow-x: hidden !important;
 
   @media (max-width: 500px) {
     height: auto; 
@@ -23,4 +24,4 @@ const Header = styled.header`
   width: 100%;  
 `;
 
-export { AllArea, Header };
+export { ContainerCustom, Header };

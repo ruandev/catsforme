@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v1 as uuidv1 } from 'uuid';
 import {
-  Area, Buttons, Button, Unlike,
+  Image, Buttons, Button, Unlike, AreaVote,
 } from './style';
 import PawCat from '../../assets/paw_cat.png';
 
@@ -18,6 +18,7 @@ export default function Cats({ analyticsRegister, handleVote }) {
   const [urlImage, setUrlImage] = useState('');
   const [imageId, setImageId] = useState('');
   const [newImage, setNewImage] = useState('');
+  const [like, setLike] = useState();
 
   useEffect(() => {
     axios
@@ -33,8 +34,15 @@ export default function Cats({ analyticsRegister, handleVote }) {
   }, [apiKey, newImage]);
 
   function vote(thumbs) {
-    const valueVote = thumbs ? 1 : 0;
-    analyticsRegister(`vote ${thumbs ? 'positive' : 'negative'}`);
+    setLike(thumbs);
+    let valueVote;
+    if (thumbs) {
+      analyticsRegister('vote positive');
+      valueVote = 1;
+    } else {
+      analyticsRegister('vote negative');
+      valueVote = 0;
+    }
 
     const body = {
       image_id: imageId,
@@ -54,7 +62,8 @@ export default function Cats({ analyticsRegister, handleVote }) {
   }
 
   return (
-    <Area image={urlImage}>
+    <AreaVote>
+      <Image image={urlImage} like={like} />
       <Buttons>
         <Button title="Unlike" color="#ad2c34" onClick={() => vote(false)}>
           <Unlike>X</Unlike>
@@ -63,6 +72,6 @@ export default function Cats({ analyticsRegister, handleVote }) {
           <img src={PawCat} alt="Like" width="50px" height="50px" />
         </Button>
       </Buttons>
-    </Area>
+    </AreaVote>
   );
 }

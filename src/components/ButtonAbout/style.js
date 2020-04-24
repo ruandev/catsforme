@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const ButtonAboutCustomer = styled.button`
  top: 10px;
   right: 10px;
   border: none;
@@ -17,4 +17,4 @@ const Button = styled.button`
   }
 `;
 
-export { Button };
+export { ButtonAboutCustomer };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Facts, Fact } from './style';
+import { AreaFact, Fact } from './style';
 
 export default function FunFact({ newFact }) {
   const [data, setData] = useState({});
@@ -19,8 +19,8 @@ export default function FunFact({ newFact }) {
   }, [newFact]);
 
   return (
-    <Facts>
+    <AreaFact>
       <Fact>{data.text}</Fact>
-    </Facts>
+    </AreaFact>
   );
 }

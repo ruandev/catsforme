@@ -19,11 +19,12 @@ body {
   background-color: #e9ebf0;
   background-image: url("./assets/background_cat.png");
   overflow: hidden;
+  overflow-x: hidden !important;
 }
 
 @media screen and (max-width: 500px) {
   body {
-    overflow: auto;
+    overflow-y: auto;
   }
 }
 

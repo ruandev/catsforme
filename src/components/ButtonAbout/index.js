@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SweetAlert from 'sweetalert2-react';
-import { Button } from './style';
+import { ButtonAboutCustomer } from './style';
 
 export default function ButtonAbout({ analyticsRegister }) {
   const [showModal, setShowModal] = useState(false);
@@ -12,9 +12,9 @@ export default function ButtonAbout({ analyticsRegister }) {
 
   return (
     <>
-      <Button onClick={clickAbout}>
+      <ButtonAboutCustomer onClick={clickAbout}>
         About
-      </Button>
+      </ButtonAboutCustomer>
 
       <SweetAlert
         show={showModal}
@@ -27,7 +27,7 @@ export default function ButtonAbout({ analyticsRegister }) {
         <li><a href='https://alexwohlbruck.github.io/cat-facts/docs/'>cat-facts</a> provided by <a href='https://github.com/alexwohlbruck'>Alex Wohlbruck</a></li>
         <li><a href='https://docs.thecatapi.com/'>TheCatApi</a> provided by <a href='https://github.com/AdenForshaw'>Aden Forshaw</a></li>
         </ul>
-        <p>Developed by <a href='https://github.com/ruandev'>Ruan Victor</a> with &#129505; in Recife</p>
+        <p>Made by <a href='https://github.com/ruandev'>Ruan Victor</a> with &#129505; in Recife</p>
         </div>
         "
         onConfirm={() => setShowModal(false)}

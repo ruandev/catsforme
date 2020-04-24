@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Facts = styled.div`
+const AreaFact = styled.div`
   width: 70%;
   height: 70%;
   display: flex;
@@ -15,18 +15,4 @@ const Fact = styled.p`
   letter-spacing: 2px;
 `;
 
-const Button = styled.button`
-background-color: #6b645b;
-border: none;
-padding: 10px 20px;
-color: white;
-font-size: 1rem;
-cursor: pointer;
-transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-export { Facts, Fact, Button };
+export { AreaFact, Fact };

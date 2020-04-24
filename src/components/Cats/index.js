@@ -5,6 +5,7 @@ import {
   Image, Buttons, Button, Unlike, AreaVote,
 } from './style';
 import PawCat from '../../assets/paw_cat.png';
+import Loading from '../Loading';
 
 export default function Cats({ analyticsRegister, handleVote }) {
   const apiKey = process.env.API_KEY;
@@ -18,7 +19,7 @@ export default function Cats({ analyticsRegister, handleVote }) {
   const [urlImage, setUrlImage] = useState('');
   const [imageId, setImageId] = useState('');
   const [newImage, setNewImage] = useState('');
-  const [like, setLike] = useState();
+  const [like, setLike] = useState(2);
 
   useEffect(() => {
     axios
@@ -27,6 +28,7 @@ export default function Cats({ analyticsRegister, handleVote }) {
         headers: { 'x-api-key': apiKey },
       })
       .then((result) => {
+        setLike(2);
         setUrlImage(result.data[0].url);
         setImageId(result.data[0].id);
       })
@@ -34,7 +36,6 @@ export default function Cats({ analyticsRegister, handleVote }) {
   }, [apiKey, newImage]);
 
   function vote(thumbs) {
-    setLike(thumbs);
     let valueVote;
     if (thumbs) {
       analyticsRegister('vote positive');
@@ -43,6 +44,7 @@ export default function Cats({ analyticsRegister, handleVote }) {
       analyticsRegister('vote negative');
       valueVote = 0;
     }
+    setLike(valueVote);
 
     const body = {
       image_id: imageId,
@@ -63,7 +65,7 @@ export default function Cats({ analyticsRegister, handleVote }) {
 
   return (
     <AreaVote>
-      <Image image={urlImage} like={like} />
+      <Image src={urlImage} like={like} loader={<Loading />} />
       <Buttons>
         <Button title="Unlike" color="#ad2c34" onClick={() => vote(false)}>
           <Unlike>X</Unlike>

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import Img from 'react-image';
 
 const fadeOutLeft = keyframes`
     0% {
@@ -22,33 +23,35 @@ const fadeOutRight = keyframes`
     }
 `;
 
+const useKeyframe = (value) => {
+  if (value === 0) {
+    return fadeOutLeft;
+  }
+  if (value === 1) {
+    return fadeOutRight;
+  }
+  return null;
+};
+
 const AreaVote = styled.main`
   display: flex;
   position: relative;
   width: 100%;
   min-height: 500px;
+  justify-content: center;
+  align-content: center;
 
   @media (max-width: 600px) {
     min-height: 300px;
   }
 `;
 
-const Image = styled.div`
-  display: flex;
-  position: relative;
-  background-image: url("${(props) => props.image}");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  flex-flow: column-reverse;
+const Image = styled(Img)`
+  animation: ${(props) => useKeyframe(props.like)} 2s;
   width: 100%;
-  animation: ${(props) => (props.like ? fadeOutRight : fadeOutLeft)} 2s;
-
-  min-height: 500px;
-
-  @media (min-width: 600px) {
-    min-height: 300px;
-  }
+  height: 100%;
+  object-fit: contain;
+  max-height: 500px;  
 `;
 
 const Buttons = styled.div`

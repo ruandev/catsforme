@@ -19,12 +19,21 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 20px 20px;
+  border-radius: 50%;
   border: none;
   margin-right: 10px;
-  font-size: 1.5rem;
-  color: ${(props) => props.color || 'black'};
+  font-size: 3rem;
+  background-color: ${(props) => props.color || 'black'};
+  color: white;
+  align-content: center;
+  display: flex;
+  cursor: pointer;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(80%);
+  }
 `;
 
 export { Area, Buttons, Button };

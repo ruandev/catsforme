@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Facts, Fact } from './style';
+import { Facts, Fact, Button } from './style';
 
 export default function FunFact() {
   const [data, setData] = useState({});
@@ -22,14 +22,13 @@ export default function FunFact() {
   return (
     <Facts>
       <Fact>{data.text}</Fact>
-      <button
-        type="button"
+      <Button
         onClick={() => {
           setNewFact(!newFact);
         }}
       >
         New Fun Fact
-      </button>
+      </Button>
     </Facts>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v1 as uuidv1 } from 'uuid';
-import { FaThumbsUp, FaRandom } from 'react-icons/fa';
+import { FaRandom } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Area, Buttons, Button } from './style';
+import PawCat from '../../assets/paw_cat.png';
 
 export default function Cats() {
   const apiKey = process.env.API_KEY;
@@ -56,13 +57,13 @@ export default function Cats() {
   return (
     <Area image={urlImage}>
       <Buttons>
-        <Button title="Like" color="green" onClick={() => vote(true)}>
-          <FaThumbsUp />
+        <Button title="Like" onClick={() => vote(true)} color="#348a5d">
+          <img src={PawCat} alt="Like" width="50px" height="50px" />
         </Button>
-        <Button title="Unlike" color="red" onClick={() => vote(false)}>
+        <Button title="Unlike" color="#ad2c34" onClick={() => vote(false)}>
           <AiOutlineClose />
         </Button>
-        <Button title="New Image" onClick={newRandomImage}>
+        <Button title="New Image" onClick={newRandomImage} color="#015a6b">
           <FaRandom />
         </Button>
       </Buttons>

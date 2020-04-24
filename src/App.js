@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <>
-      <ButtonAbout />
+      <ButtonAbout analyticsRegister={registerEventClick} />
       <Page>
         <Container analyticsRegister={registerEventClick} />
       </Page>

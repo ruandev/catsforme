@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import SweetAlert from 'sweetalert2-react';
 import { Button } from './style';
 
-export default function ButtonAbout() {
+export default function ButtonAbout({ analyticsRegister }) {
   const [showModal, setShowModal] = useState(false);
+
+  function clickAbout() {
+    analyticsRegister('About');
+    setShowModal(true);
+  }
+
   return (
     <>
-      <Button onClick={() => setShowModal(true)}>
+      <Button onClick={clickAbout}>
         About
       </Button>
 
